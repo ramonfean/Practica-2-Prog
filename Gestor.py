@@ -88,21 +88,9 @@ class Gestor_Turnos:
         """
         Método que cambia la prioridad de un paciente
         """
-        if cola_general_no_urgente.prioridad_paciente():
-            cola_general_urgente_prioridad.enqueue(cola_general_no_urgente.dequeue())
-            print(f"{self._tiempo}: Priorización activa {paciente._IDPAC}")
-        if cola_especialidad_no_urgente.prioridad_paciente():
-            cola_especialidad_urgente_prioridad.enqueue(cola_especialidad_no_urgente.dequeue())
-            print(f"{self._tiempo}: Priorización activa {paciente._IDPAC}")
-    
-    def prioridad(self)
-        """
-        Método que asigna una consulta a un paciente
-        """
-        if consulta_general.consulta_acabada()
-            if not cola_general_urgente_prioridad.is_empty():
-                paciente = consulta_general.enqueue(cola_general_urgente_prioridad.first()) 
-                
+     
+
+
 
         
     

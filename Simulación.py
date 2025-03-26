@@ -7,8 +7,6 @@ cola_general_urgente = Cola_Urgente()
 cola_general_no_urgente = Cola_No_Urgente()
 cola_especialidad_urgente = Cola_Urgente()
 cola_especialidad_no_urgente = Cola_No_Urgente()
-cola_general_urgente_prioridad = Cola_Urgente()
-cola_especialidad_urgente_prioridad = Cola_Urgente()
 consulta_general = Consulta()
 consulta_especialidad = Consulta()
 
@@ -36,8 +34,6 @@ while not cola_admision.is_empty():
         gestor_turnos.cambiar_prioridad(cola_general_no_urgente.prioridad_paciente())
     if cola_especialidad_no_urgente.prioridad_paciente():
         gestor_turnos.cambiar_prioridad(cola_especialidad_no_urgente.prioridad_paciente())
-    if 
-        gestor_turnos.asignar_consulta()
 
     
     
