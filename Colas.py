@@ -76,23 +76,22 @@ class Cola_Admisión(ArrayQueue):
     def __init__(self):
         super().__init__()
 
-class Cola_General_Urgente(ArrayQueue):
-    def __init__(self, prioridad):
+class Cola_Urgente(ArrayQueue):
+    def __init__(self, prioridad, contador_tiempo):
         super().__init()
         self._prioridad = prioridad
-class Cola_General_No_Urgente(ArrayQueue):
-    def __init__(self, prioridad):
-        super().__init()
-        self._prioridad = prioridad
+        self._contador_tiempo = contador_tiempo
 
-class Cola_Especialidad_Urgente(ArrayQueue):
-    def __init__(self, prioridad):
+class Cola_No_Urgente(ArrayQueue):
+    def __init__(self, prioridad, contador_tiempo):
         super().__init()
         self._prioridad = prioridad
-class Cola_Especialidad_No_Urgente(ArrayQueue):
-    def __init__(self, prioridad):
-        super().__init()
-        self._prioridad = prioridad
+        self._contador_tiempo = contador_tiempo
+
+        def prioridad_paciente(self)
+            for paciente in self._data:
+                if 
+
 
 class Consulta(ArrayQueue):
     def __init__(self, contador_tiempo):

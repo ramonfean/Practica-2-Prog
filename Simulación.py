@@ -3,10 +3,10 @@ from Colas import *
 from Gestor import *
 
 cola_admision = Cola_Admisión()
-cola_general_urgente = Cola_General_Urgente()
+cola_general_urgente = Cola_Urgente()
 cola_general_no_urgente = Cola_General_No_Urgente()
-cola_especialidad_urgente = Cola_Especialidad_Urgente()
-cola_especialidad_no_urgente = Cola_Especialidad_No_Urgente()
+cola_especialidad_urgente = Cola_Urgente()
+cola_especialidad_no_urgente = Cola_No_Urgente()
 
 
 with open(r"C:\Users\ramon\Documents\Práctica 2 Prog\patients1.txt", "r", encoding="utf-8") as file:
@@ -28,6 +28,7 @@ while not cola_admision.is_empty():
     contador_tiempo.avanzar_tiempo()
     if (contador_tiempo._tiempo -1) % 3 == 0:
         gestor_turnos.asignar_cola(cola_admision.dequeue())
+    
 
 
         
