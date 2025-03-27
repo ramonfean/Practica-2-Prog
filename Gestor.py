@@ -55,7 +55,7 @@ class Gestor_Turnos:
                 print(f"{self._tiempo}: {paciente._IDPAC}} entra especialidad/not priority ADM:{paciente._tiempo_llegada}, INI: {self._tiempo}, EST: {paciente._tiempo_estimado}")
             else:
                 consulta_especialidad.enqueue(cola_especialidad_urgente.first())
-                print(f"{self._tiempo}: {paciente._IDPAC}} entra especialidad/priority ADM:{paciente._tiempo_llegada}, INI: {self._tiempo}, EST: {paciente._tiempo_est
+                print(f"{self._tiempo}: {paciente._IDPAC}} entra especialidad/priority ADM:{paciente._tiempo_llegada}, INI: {self._tiempo}, EST: {paciente._tiempo_estimado}")
    
     def asignar_cola(self, paciente):
         """
@@ -84,11 +84,7 @@ class Gestor_Turnos:
                 print(f"{self._tiempo}: {paciente._IDPAC} en cola especialidad/not priority EST:{paciente._tiempo_estimado}")
 
     
-    def cambiar_prioridad(self, paciente):
-        """
-        Método que cambia la prioridad de un paciente
-        """
-     
+
 
 
 
