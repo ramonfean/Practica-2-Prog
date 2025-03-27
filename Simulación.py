@@ -4,9 +4,11 @@ from Gestor import *
 
 cola_admision = Cola_Admisión()
 cola_general_urgente = Cola_Urgente()
-cola_general_no_urgente = Cola_General_No_Urgente()
+cola_general_no_urgente = Cola_No_Urgente()
 cola_especialidad_urgente = Cola_Urgente()
 cola_especialidad_no_urgente = Cola_No_Urgente()
+consulta_general = Consulta()
+consulta_especialidad = Consulta()
 
 
 with open(r"C:\Users\ramon\Documents\Práctica 2 Prog\patients1.txt", "r", encoding="utf-8") as file:
@@ -21,13 +23,19 @@ with open(r"C:\Users\ramon\Documents\Práctica 2 Prog\patients1.txt", "r", encod
 
         cola_admision.enqueue(paciente)
 
-contador_tiempo = Contador_Tiempo(1)
-gestor_turnos = Gestor_Turnos(cola_admision, cola_general_urgente, cola_general_no_urgente, cola_especialidad_urgente, cola_especialidad_no_urgente)
+gestor_turnos = Gestor_Turnos(gestor_turnos, cola_admision, cola_general_urgente, cola_general_no_urgente, cola_especialidad_urgente, cola_especialidad_no_urgente)
+contador_tiempo = Contador_Tiempo(cola_admision, cola_general_urgente, cola_general_no_urgente, cola_especialidad_urgente, cola_especialidad_no_urgente)
 
 while not cola_admision.is_empty():
     contador_tiempo.avanzar_tiempo()
     if (contador_tiempo._tiempo -1) % 3 == 0:
         gestor_turnos.asignar_cola(cola_admision.dequeue())
+    if cola_general_no_urgente.prioridad_paciente():
+        gestor_turnos.cambiar_prioridad(cola_general_no_urgente.prioridad_paciente())
+    if cola_especialidad_no_urgente.prioridad_paciente():
+        gestor_turnos.cambiar_prioridad(cola_especialidad_no_urgente.prioridad_paciente())
+
+    
     
 
 
