@@ -90,5 +90,7 @@ class Patient(ABC):
         Setter del atributo tiempo_llegada
         """
         self._tiempo_llegada = tiempo_llegada
+
+    
         
     
