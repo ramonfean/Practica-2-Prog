@@ -76,7 +76,11 @@ class Gestor_Turnos:
         if paciente._prioridad_activa:
             if paciente._urgencia == "not priority":
                 paciente._urgencia = "priority"
+<<<<<<< HEAD
                 print(f"{self._tiempo}: Priorización activa {paciente._IDPac} ")
+=======
+                print(f"{self._tiempo}: Priorización activa {self._IDPac} ")
+>>>>>>> f736f5991c9be185c452cd7dd729b4f6804349a9
 
         if paciente._tipo_consulta == "general":
             if paciente.urgencia == "priority":
