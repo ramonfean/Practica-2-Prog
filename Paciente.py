@@ -18,13 +18,12 @@ class Patient(ABC):
 
     """
 
-    def __init__(self, IDPAC, tipo_consulta, urgencia, tiempo_estimado, tiempo_llegada: int = 0, prioridad_activa: bool = False):
+    def __init__(self, IDPAC, tipo_consulta, urgencia, tiempo_estimado: int, tiempo_llegada: int = 0):
         self._IDPAC = IDPAC
         self._tipo_consulta = tipo_consulta
         self._urgencia = urgencia
         self._tiempo_estimado = tiempo_estimado
         self._tiempo_llegada = tiempo_llegada
-        self._prioridad_activa = prioridad_activa
     
     @property
     def IDPAC(self):

@@ -71,37 +71,26 @@ class ArrayQueue:
         return s
 
 
-
-class Cola_Admisión(ArrayQueue):
-    def __init__(self):
+class Cola(ArrayQueue):
+    def __init__(self, tiempo: int=1):
         super().__init__()
-
-class Cola_Urgente(ArrayQueue):
-    def __init__(self, prioridad, tiempo: int=1):
-        super().__init()
-        self._prioridad = prioridad
         self._tiempo = tiempo
-    
 
-class Cola_No_Urgente(ArrayQueue):
-    def __init__(self, prioridad, tiempo: int=1, contador_tiempo):
-        super().__init()
-        self._prioridad = prioridad
-        self._tiempo = tiempo
-        self._contador_tiempo = contador_tiempo
-
-        def prioridad_paciente(self)
-            if self._contador_tiempo - Cola_No_Urgente.first()_tiempo_llegada > 7
-                return Cola_No_Urgente.first()
+    def incrementar_tiempo(self):
+        self._tiempo += 1
 
 
 class Consulta(ArrayQueue):
-    def __init__(self, tiempo):
-        super().__init()
+    def __init__(self, tiempo: int=1):
+        super().__init__()
         self._tiempo = tiempo
+
+    def incrementar_tiempo(self):
+        self._tiempo += 1
+        
     def consulta_acabada(self):
-        if self._tiempo >= Consulta.first()._tiempo_llegada + Consulta.first()._tiempo_estimado:
-            return Consulta.dequeue()
+        if self._tiempo >= self.first()._tiempo_llegada + self.first()._tiempo_estimado:
+            return self.dequeue()
     
     
 
