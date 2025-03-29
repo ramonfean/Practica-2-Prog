@@ -18,12 +18,14 @@ class Patient(ABC):
 
     """
 
-    def __init__(self, IDPAC, tipo_consulta, urgencia, tiempo_estimado: int, tiempo_llegada: int = 0):
+    def __init__(self, IDPAC, tipo_consulta, urgencia, tiempo_estimado: int = 1, tiempo_cola: int = 1, tiempo_consulta: int = 1, bloqueo_prioridad: bool = False):
         self._IDPAC = IDPAC
         self._tipo_consulta = tipo_consulta
         self._urgencia = urgencia
         self._tiempo_estimado = tiempo_estimado
-        self._tiempo_llegada = tiempo_llegada
+        self._tiempo_llegada = tiempo_cola
+        self._tiempo_entrada = tiempo_consulta
+        self._bloqueo_prioridad = bloqueo_prioridad
     
     @property
     def IDPAC(self):
@@ -90,6 +92,29 @@ class Patient(ABC):
         """
         self._tiempo_llegada = tiempo_llegada
 
+    @property
+    def tiempo_entrada(self):
+        """
+        Getter del atributo tiempo_entrada
+        """
+        return self._tiempo_entrada
+    @tiempo_entrada.setter
+    def tiempo_entrada(self, tiempo_entrada):
+        """
+        Setter del atributo tiempo_entrada
+        """
+        self._tiempo_entrada = tiempo_entrada
     
-        
+    @property
+    def bloqueo_prioridad(self):
+        """
+        Getter del atributo bloqueo_prioridad
+        """
+        return self._bloqueo_prioridad
+    @bloqueo_prioridad.setter
+    def bloqueo_prioridad(self, bloqueo_prioridad):
+        """
+        Setter del atributo bloqueo_prioridad
+        """
+        self._bloqueo_prioridad = bloqueo_prioridad    
     

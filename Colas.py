@@ -81,16 +81,19 @@ class Cola(ArrayQueue):
 
 
 class Consulta(ArrayQueue):
-    def __init__(self, tiempo: int=1):
+    def __init__(self, tiempo: int = 1, inicio_consulta: int = 1):
         super().__init__()
         self._tiempo = tiempo
 
+    def enqueue(self, paciente):
+        super().enqueue(paciente)
+        paciente._entrada = self._tiempo    
+
     def incrementar_tiempo(self):
         self._tiempo += 1
+    
+
         
-    def consulta_acabada(self):
-        if self._tiempo >= self.first()._tiempo_llegada + self.first()._tiempo_estimado:
-            return self.dequeue()
     
     
 
