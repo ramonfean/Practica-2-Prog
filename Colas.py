@@ -75,6 +75,19 @@ class Cola(ArrayQueue):
     def __init__(self, tiempo: int=1):
         super().__init__()
         self._tiempo = tiempo
+    
+    @property
+    def tiempo(self):
+        """"
+        Getter del atributo tiempo
+        """
+        return self._tiempo
+    @tiempo.setter
+    def tiempo(self, tiempo):
+        """"
+        Setter del atributo tiempo
+        """
+        self._tiempo = tiempo
 
     def incrementar_tiempo(self):
         self._tiempo += 1
@@ -83,6 +96,32 @@ class Cola(ArrayQueue):
 class Consulta(ArrayQueue):
     def __init__(self, tiempo: int = 1, inicio_consulta: int = 1):
         super().__init__()
+        self._tiempo = tiempo
+    
+    @property
+    def tiempo(self):
+        """"
+        Getter del atributo tiempo
+        """
+        return self._tiempo
+    @tiempo.setter
+    def tiempo(self, tiempo):
+        """"
+        Setter del atributo tiempo
+        """
+        self._tiempo = tiempo
+    
+    @property
+    def inicio_consulta(self):
+        """"
+        Getter del atributo inicio de consulta
+        """
+        return self._tiempo
+    @inicio_consulta.setter
+    def inicio_consulta(self, tiempo):
+        """"
+        Setter del atributo inicio de consulta
+        """
         self._tiempo = tiempo
 
     def enqueue(self, paciente):

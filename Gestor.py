@@ -1,5 +1,28 @@
 
 class Gestor_Turnos:
+    """
+    Clase Gestor_Turnos que gestiona la asignación de turnos a los pacientes en un sistema de salud.
+    Atributos
+    ----------
+    cola_admision : Cola
+        Cola de admisión de pacientes
+    consulta_general : Consulta
+        Cola de consulta general
+    consulta_especialidad : Consulta
+        Cola de consult de especialidad
+    cola_general_urgente : Cola
+        Cola de pacientes egenerales de urgencia
+    cola_general_no_urgente : Cola
+        Cola de pacientes generales no urgentes
+    cola_especialidad_urgente : Cola
+        Cola de pacientes de especialidad urgentes
+    cola_especialidad_no_urgente : Cola
+        Cola de pacientes nde especialidad no urgentes
+    prioridad_activa : list 
+        Lista de pacientes con prioridad activa
+    tiempo : int
+        Tiempo actual del sistema
+    """
 
     def __init__(self, cola_admision, consulta_general, consulta_especialidad, cola_general_urgente, cola_general_no_urgente, cola_especialidad_urgente, cola_especialidad_no_urgente, prioridad_activa, tiempo):
         
@@ -26,8 +49,24 @@ class Gestor_Turnos:
         """
         self._prioridad_activa = prioridad_activa
     
+    @property
+    def tiempo(self):
+        """
+        Getter del atributo tiempo
+        """
+        return self._tiempo
+    @tiempo.setter
+    def tiempo(self, tiempo):
+        """
+        Setter del atributo tiempo
+        """
+    
 
     def avanzar_tiempo(self):
+        """
+        Método que avanza el tiempo del sistema
+        
+        """
         self._tiempo += 1
         self._cola_general_urgente.incrementar_tiempo()
         self._cola_general_no_urgente.incrementar_tiempo()
@@ -37,8 +76,21 @@ class Gestor_Turnos:
         self._consulta_especialidad.incrementar_tiempo()
 
 
-
     def acabar_consulta(self, cola):
+        """
+        Método que verifica si la consulta ha terminado
+
+        Parámetros
+        ----------
+        cola : Cola
+            Cola de pacientes en consulta
+        
+        Retorna
+        -------
+        bool
+            True si la consulta ha terminado, False en caso contrario
+        """
+
         if self._tiempo >= cola.first()._tiempo_consulta + cola.first()._tiempo_estimado: 
             paciente = cola.dequeue()
             print(f"{self._tiempo}: {paciente._IDPAC} sale {paciente._tipo_consulta}/{paciente._urgencia} ADM:{paciente._tiempo_cola}, INI: {paciente._tiempo_consulta}, EST./TOTAL: {paciente._tiempo_estimado}/{self._tiempo - paciente._tiempo_cola}") 
@@ -81,6 +133,7 @@ class Gestor_Turnos:
     def asignar_consulta(self):
         """
         Método que asigna una consulta a un paciente
+
         """
 
 
@@ -128,15 +181,6 @@ class Gestor_Turnos:
 
     
 
-
-
-#if paciente._IDPAC in self._prioridad_activa and paciente._bloqueo_prioridad == False:
-            #if paciente._urgencia == "not priority":
-                #paciente._urgencia = "priority"
-                #print(f"{self._tiempo}: Priorización activa {paciente._IDPac} ")
-                #self._prioridad_activa.remove(paciente._IDPAC)
-
-#Resolver no aplica prioridad
 
 
 
